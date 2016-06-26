@@ -1,5 +1,5 @@
 <?php 
-	$servername = "localhost:8889";
+	$servername = "localhost";
 	$username = "root";
 	$password = "root";
 	$database_name = "uwglass";

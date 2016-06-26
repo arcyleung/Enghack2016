@@ -27,9 +27,9 @@
     <div id = "loginform">
     <input type = "image" id = "close_login" src = "images/close.png">
             <form method = "post" action = "">
-                <input type = "text"   id = "login"    placeholder = "Email Id" name = "uid"   value = "">
-                <input type = "password" id = "password" placeholder = "Password" name = "upass" value = "">
-                <input type = "submit"   id = "dologin"  value = "Login" name="submit">
+                <input class="centering2" type = "text"   id = "login"    placeholder = "Email Id" name = "uid"   value = "">
+                <input class="centering2" type = "password" id = "password" placeholder = "Password" name = "upass" value = "">
+                <input class="centering2" type = "submit"   id = "dologin"  value = "Login" name="submit">
             </form>
     </div>
 

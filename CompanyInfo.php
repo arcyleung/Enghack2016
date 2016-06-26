@@ -47,7 +47,7 @@
   			  	session_start();
           		if(isset($_SESSION['login']) && $_SESSION['login']==1){
            			echo '<br>
-           				  <a href="companyReview.php?comName='.$CompName.'">
+           				  <a class="compname centering" href="companyReview.php?comName='.$CompName.'">
       					  <input type = "submit"  id = "newReview"  value = "Click me to issue a new review !">
       					  </a>';
           		}
@@ -58,6 +58,7 @@
 
 		</div>
 
-<a href='https://www.glassdoor.com/index.htm'>powered by <img src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
+<a class='gdlogo' href='https://www.glassdoor.com/index.htm'>
+powered by <img class='gdlogo' src='https://www.glassdoor.com/static/img/api/glassdoor_logo_80.png' title='Job Search' /></a>
 	</body>	
 </html>
