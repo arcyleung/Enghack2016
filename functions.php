@@ -48,13 +48,11 @@ function register($usrname, $password, $id, $link){
 function getUserId($username,$link){
 	$query="SELECT * FROM userinfo WHERE email='".$username."'";
 	$result = mysqli_query($link,$query );
-	// var_dump($result);
 	if (!$result) {
 	    echo "email invaid".$query;
 	}
 	$row = mysqli_fetch_assoc($result);
 	if($row['userid']){
-		// echo $row['userid'];
 		return $row['userid'];
 	}else{
 		echo "cannot get id from email";
@@ -69,18 +67,17 @@ function addReview($userid,$employername,$review,$rating, $link){
 	if(is_null($review)){
 		echo "no review made";
 	}
-	// echo "userid". $userid."<br>";
 	$query = "SELECT * FROM userposts 
     WHERE employername ='".$employername."' AND userid='".$userid."'";
-    // echo $query;
 	$check = mysqli_query($link,$query);
 	$row = mysqli_fetch_assoc($check);
-	// echo $query;
 	echo mysqli_num_rows($check);
 	$stat = 1;	
 	if(mysqli_num_rows($check)!=0){
 		$stat = 2;
-		deleteReview($userid,$employername,$link);
+		if (deleteReview($userid,$employername,$link)==0){
+			return 0;
+		}
 	}
 
 	$query1 = "INSERT INTO userposts (userid,employername,postdata,rating, reviewdate) values ('".$userid."','".$employername."','".$review."',".$rating.", CURDATE())";
