@@ -16,7 +16,6 @@
 
   <ul>
       <li><a>You are not logged in Yet</a></li>
-      <li style="float:right"><a href="">Register</a></li>
   </ul>
 
 
