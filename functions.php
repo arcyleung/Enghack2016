@@ -105,8 +105,8 @@ function showReview($employername, $link){
 	}
 	while($row = mysqli_fetch_assoc($result)){
 		echo "<p>";
-		echo $row['username'.' '];
-		echo $row['rating'].'<br>';
+		echo '<h4>'.$row['userid']." ";
+		echo "user rating : ".$row['rating'].'</h4><br>';
 		echo $row['postdata'].'<br>';
 		echo "</p>";
 	}
