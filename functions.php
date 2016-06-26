@@ -2,8 +2,8 @@
 
 function search($search){
 	strtolower($search);
-	$query = "SELECT * FROM employerdata 
-    WHERE employername OR title LIKE'%".$search."%'";
+	$query = "SELECT DISTINCT * FROM employerdata 
+    WHERE employername LIKE'%".$search."%'";
 
 	$result = mysqli_query($link,$query);
 
@@ -14,8 +14,7 @@ function search($search){
 	}
 
 	while($row = mysqli_fetch_assoc($result)){
-		echo $row['employerdata'].' ';
-		echo $row['title'].'<br>';
+		echo $row['employername'].'<br>';
 	}
 
 	mysqli_free_result($result);
@@ -64,7 +63,7 @@ function review($userid,$employername,$review,$rating){
 
 function deleteReview($usrname, $employername){
 
-	$result = mysqli_query($link,"DELETE FROM userposts WHERE usrname='".$usrname."' AND employername='".$employername."'");
+	$result = mysqli_query($link,"DELETE FROM userposts WHERE username='".$usrname."' AND employername='".$employername."'");
     if($result){
     	echo "delete successfully";
     }else{
@@ -72,6 +71,34 @@ function deleteReview($usrname, $employername){
     }
 }
 
+function setSession(){
 
+}
+
+function showCompany($employername){
+	$query ="SELECT DISTINCT * FROM employerdata WHERE employername='".$employername."'";
+	$result = mysqli_query($link, $query);
+	$row = mysqli_fetch_assoc($result);
+	echo $employername."  ".$row['location'];
+	mysqli_free_result($result);
+}
+
+function showReview($employername){
+	$query ="SELECT * FROM userposts WHERE employername='".$employername."'";
+	$result = mysqli_query($link,$query);
+	if(!$result){
+		echo "review cannot be displayed";
+	}
+	while($row = mysqli_fetch_assoc($result)){
+		echo "<p>";
+		echo $row['username'.' '];
+		echo $row['rating'].'<br>';
+		echo $row['postdata'].'<br>';
+		echo "</p>";
+	}
+
+	mysqli_free_result($result);
+
+}
 
 ?> 
