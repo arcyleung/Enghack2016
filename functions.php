@@ -107,9 +107,9 @@ function showReview($employername, $link){
 	}
 
 	while($row = mysqli_fetch_assoc($result)){
-		echo "<p>";
+		echo "<p class='user_review'>";
 		echo '<h4>'.$row['userid']." ";
-		echo "user rating : ".$row['rating'].'</h4><br>';
+		// echo "user rating : ".$row['rating'].'</h4><br>';
 		for ($i = 0; $i < floor($row['rating']); $i++){
 			echo '<img src="images/goose.png" height="30" width="30">';
 		}

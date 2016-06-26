@@ -26,6 +26,16 @@ html {
     margin: auto;
 }
 
+.centering2{
+    width: 50%;
+    left:50%;
+    margin: auto;
+}
+
+form {
+  text-align: center;
+}
+
 
 ul {
     list-style-type: none;
