@@ -1,7 +1,12 @@
 <?php
 	include 'loginLibrary/connection.php';
 	include 'functions.php';
-	$CompName = $_GET['comName'];
+	session_start();
+	if(isset($_GET['comName'])){
+		$CompName = $_GET['comName'];
+	}else{
+		$CompName = $_SESSION['comName'];
+	}
 ?>
 
 <!DOCTYPE html>

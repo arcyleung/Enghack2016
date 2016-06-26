@@ -22,7 +22,7 @@
      <div id = "reviewtextarea">
         <form method = "post" action = "">
             <textarea id = "review" name="input" rows="4" cols="50"></textarea>
-            <br>
+            <br><br>
             <tr>
               <td><label>Select the rating:</label></td>
               <td>
@@ -41,7 +41,7 @@
               </select>
             </td>
             </tr>
-            <br>
+            <br><br>
             <input type = "submit"  name="postReview" value = "Done !" >
         </form>
      </div>
@@ -58,7 +58,14 @@
         }else if(addReview($user,$CompName,$review,$rating,$link)==2){
           echo "<script>alert('Update error. Try again later!');</script>";
         }
-        header("Location: ");
+
+        session_start();
+        $_SESSION['login_user'] = $user;
+        $_SESSION['comName'] = $CompName;
+
+        header("Location: /CompanyInfo.php");
+        exit;
+
       }
       ?>
     </div>
