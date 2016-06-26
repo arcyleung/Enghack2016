@@ -20,11 +20,13 @@ function search($search,$link){
 	    die($message);	
 	}
 	echo '</br>';
+	echo '<ul class ="emplist">';
 	while($row = mysqli_fetch_assoc($result)){
 
-		echo '<a href="CompanyInfo.php?comName='.$row['employername'].'">'.$row['employername'].'</a><br>';
+		echo '<li style="display:inline-block!Important" class ="emplistent"><a href="CompanyInfo.php?comName='.$row['employername'].'">'.$row['employername'].'</a><br></li>';
 	}
 	mysqli_free_result($result);
+	echo '</ul>';
 }
 
 function register($usrname, $password, $id, $link){

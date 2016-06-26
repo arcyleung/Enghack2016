@@ -37,7 +37,7 @@
 				echo "<img src='/Enghack2016/images/goose.png'style='width:100px;height:100px;'>"; 
 			}
 			if($request['website']){
-				echo "<a href='http://".$request['website']."'>".$CompName."</a>";
+				echo "<a class = 'compname' href='http://".$request['website']."'>".$CompName."</a>";
 			}else{
 				echo $CompName;
 			} 
@@ -53,8 +53,8 @@
   			  	
           		if(isset($_SESSION['login']) && $_SESSION['login']==1){
            			echo '<br>
-           				  <a class="compname centering" href="companyReview.php?comName='.$CompName.'">
-      					  <input type = "submit"  id = "newReview"  value = "Click me to issue a new review !">
+           				  <a class="centering" href="companyReview.php?comName='.$CompName.'">
+      					  <input type = "submit"  id = "newReview"  value = "Click me to post a new review !">
       					  </a>';
           		}
           		
