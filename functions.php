@@ -19,6 +19,7 @@ function search($search,$link){
 	    $message .= 'Whole query: ' . $query;
 	    die($message);	
 	}
+	echo '</br>';
 	while($row = mysqli_fetch_assoc($result)){
 
 		echo '<a href="CompanyInfo.php?comName='.$row['employername'].'">'.$row['employername'].'</a><br>';
