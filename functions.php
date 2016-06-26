@@ -27,7 +27,7 @@ function search($search,$link){
 	mysqli_free_result($result);
 }
 
-function register($usrname, $password, $id){
+function register($usrname, $password, $id, $link){
 	if(!strlen($id)==8){
 		echo "id wrong digits";
 	}
@@ -45,7 +45,7 @@ function register($usrname, $password, $id){
 	}
 }
 
-function addReview($userid,$employername,$review,$rating){
+function addReview($userid,$employername,$review,$rating, $link){
 	
 	if(is_null($review)){
 		echo "no review made";
@@ -68,7 +68,7 @@ function addReview($userid,$employername,$review,$rating){
 	}
 }
 
-function deleteReview($usrname, $employername){
+function deleteReview($usrname, $employername, $link){
 
 	$result = mysqli_query($link,"DELETE FROM userposts WHERE username='".$usrname."' AND employername='".$employername."'");
     if($result){
@@ -82,7 +82,7 @@ function setSession(){
 
 }
 
-function showCompany($employername){
+function showCompany($employername, $link){
 	$query ="SELECT DISTINCT * FROM employerdata WHERE employername='".$employername."'";
 	$result = mysqli_query($link, $query);
 	$row = mysqli_fetch_assoc($result);
@@ -90,7 +90,7 @@ function showCompany($employername){
 	mysqli_free_result($result);
 }
 
-function showReview($employername){
+function showReview($employername, $link){
 	$query ="SELECT * FROM userposts WHERE employername='".$employername."'";
 	$result = mysqli_query($link,$query);
 	if(!$result){
@@ -105,10 +105,9 @@ function showReview($employername){
 	}
 
 	mysqli_free_result($result);
-
 }
 
-function getAvgRatingByEmployer($emp){
+function getAvgRatingByEmployer($emp, $link){
 	$sum = 0;
 	$counts = 0;
 	$link = mysqli_connect("localhost", "root", "root", "uwglass");
