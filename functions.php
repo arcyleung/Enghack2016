@@ -1,18 +1,15 @@
 <?php
-
-function search($search){
+function search($search,$link){
 	strtolower($search);
 	$query = "SELECT DISTINCT employername FROM employerdata 
-    WHERE employername LIKE'%".$search."%'";
+    WHERE employername LIKE '%".$search."%'";
+	$result = mysqli_query($link, $query);
 
-	$result = mysqli_query($link,$query);
-	var_dump($link);
 	if (!$result) {
 	    $message  = 'Invalid query: ' . mysqli_error() . "\n";
 	    $message .= 'Whole query: ' . $query;
 	    die($message);	
 	}
-
 
 	while($row = mysqli_fetch_assoc($result)){
 		echo $row['employername'].'<br>';
