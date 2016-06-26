@@ -134,7 +134,8 @@ function getAvgRatingByEmployer($emp, $link){
 
 	mysqli_close($link);
 	if ($counts != 0){
-		return $sum/$counts;
+		
+		return number_format($sum/$counts, 1, '.', '');;
 	} else {
 		return 0;
 	}
