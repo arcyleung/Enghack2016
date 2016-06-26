@@ -82,11 +82,18 @@ function setSession(){
 
 }
 
-function showCompany($employername, $link){
+function showCompanyLoc($employername, $link){
 	$query ="SELECT DISTINCT employername,location FROM employerdata WHERE employername='".$employername."'";
 	$result = mysqli_query($link, $query);
-	$row = mysqli_fetch_assoc($result);
-	echo $employername."  ".$row['location'];
+	if (!$result) {
+	    $message  = 'Invalid query: ' . mysqli_error() . "\n";
+	    $message .= 'Whole query: ' . $query;
+	    die($message);	
+	}
+	
+	while($row = mysqli_fetch_assoc($result)){
+		echo $row['location'];
+	}
 	mysqli_free_result($result);
 }
 
