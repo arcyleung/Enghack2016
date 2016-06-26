@@ -45,43 +45,60 @@ function register($usrname, $password, $id, $link){
 	}
 }
 
+function getUserId($username,$link){
+	$query="SELECT * FROM userinfo WHERE email='".$username."'";
+	$result = mysqli_query($link,$query );
+	// var_dump($result);
+	if (!$result) {
+	    echo "email invaid".$query;
+	}
+	$row = mysqli_fetch_assoc($result);
+	if($row['userid']){
+		// echo $row['userid'];
+		return $row['userid'];
+	}else{
+		echo "cannot get id from email";
+	}
+		
+}
+
 function addReview($userid,$employername,$review,$rating, $link){
-	
+	if($userid==''){
+		echo "no userid";
+	}
 	if(is_null($review)){
 		echo "no review made";
 	}
-
+	// echo "userid". $userid."<br>";
 	$query = "SELECT * FROM userposts 
     WHERE employername ='".$employername."' AND userid='".$userid."'";
     // echo $query;
 	$check = mysqli_query($link,$query);
 	$row = mysqli_fetch_assoc($check);
-
-	//echo mysqli_num_rows($check);
+	// echo $query;
+	echo mysqli_num_rows($check);
+	$stat = 1;	
 	if(mysqli_num_rows($check)!=0){
-		echo "review already made";
-		exit;
+		$stat = 2;
+		deleteReview($userid,$employername,$link);
 	}
 
-	$query1 = "INSERT INTO userposts (userid,employername,postdata,rating, reviewdate) values ('".$usrid."','".$employername."','".$review."',".$rating.", CURDATE())";
+	$query1 = "INSERT INTO userposts (userid,employername,postdata,rating, reviewdate) values ('".$userid."','".$employername."','".$review."',".$rating.", CURDATE())";
 	$result = mysqli_query($link,$query1);
-	// echo $query1;
 	if($result){
-		// echo "review made successfully";
-		return 1;
+		return $stat;
 	}else{
-		// echo "review failed:".mysqli_error();
-		return 2;
+		return 0;
 	}
 }
 
 function deleteReview($usrname, $employername, $link){
 
-	$result = mysqli_query($link,"DELETE FROM userposts WHERE username='".$usrname."' AND employername='".$employername."'");
+	$result = mysqli_query($link,"DELETE FROM userposts WHERE userid='".$usrname."' AND employername='".$employername."'");
     if($result){
-    	echo "delete successfully";
+    	return 1;
     }else{
-    	echo "delete failed";
+    	return 0;
     }
 }
 

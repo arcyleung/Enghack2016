@@ -68,13 +68,17 @@
         $_SESSION['login_user'] = $user;
         $_SESSION['comName'] = $CompName;
 
-
-        if(addReview($user,$CompName,$review,$rating,$link)==1){
+        $stat = addReview(getUserId($user,$link),$CompName,$review,$rating,$link);
+        if($stat==1){
           echo "<script>alert('Success! Thx for reviewing');
                 window.location.href = 'CompanyInfo.php';
                 </script>";
 
-        }else if(addReview($user,$CompName,$review,$rating,$link)==2){
+        }else if($stat==2){
+          echo "<script>alert('Update successfully.');
+                window.location.href = 'CompanyInfo.php';
+                </script>";
+        }else{
           echo "<script>alert('Update error. Try again later!');
                 window.location.href = 'CompanyInfo.php';
                 </script>";
