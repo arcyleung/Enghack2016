@@ -11,7 +11,10 @@
 	// echo mysqli_num_rows($result);
 
  	if(mysqli_num_rows($result)==1){
+ 		session_start(); // Starting Session
+ 		$_SESSION['login_user']=$id; // Initializing Session
 		header("Location: userSearch.php");
+
 		exit;
 	}
 	else{
