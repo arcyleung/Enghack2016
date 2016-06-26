@@ -52,14 +52,16 @@ function addReview($userid,$employername,$review,$rating, $link){
 	}
 
 	$query = "SELECT * FROM userposts 
-    WHERE employername='".$employername."' AND userid='".$userid."'";
+    WHERE employername ='".$employername."' AND userid='".$userid."'";
+    echo $query;
 	$check = mysqli_query($link,$query);
-	if($check){
+	$row = mysqli_fetch_assoc($check);
+	if(mysql_num_rows($check)!=0){
 		echo "review already made";
-		return;
+		exit;
 	}
 
-	$result = mysqli_query($link,"INSERT INTO userposts (userid,employername,postdata,rating) values ('".$usrid."','".$employername."','".$review."',".$rating.")");
+	$result = mysqli_query($link,"INSERT INTO userposts (userid,employername,postdata,rating, reviewdate) values ('".$usrid."','".$employername."','".$review."',".$rating.", CURDATE())");
 
 	if($result){
 		echo "review made successfully";
@@ -134,7 +136,7 @@ function getAvgRatingByEmployer($emp, $link){
 
 	mysqli_close($link);
 	if ($counts != 0){
-		
+
 		return number_format($sum/$counts, 1, '.', '');;
 	} else {
 		return 0;
