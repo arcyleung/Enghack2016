@@ -83,7 +83,7 @@ function setSession(){
 }
 
 function showCompany($employername, $link){
-	$query ="SELECT DISTINCT * FROM employerdata WHERE employername='".$employername."'";
+	$query ="SELECT DISTINCT employername,location FROM employerdata WHERE employername='".$employername."'";
 	$result = mysqli_query($link, $query);
 	$row = mysqli_fetch_assoc($result);
 	echo $employername."  ".$row['location'];
