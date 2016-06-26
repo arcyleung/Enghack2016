@@ -19,9 +19,9 @@
   </ul>
 
 
-  <div class="centering">
+
     <h1>UWGlass</h1>
-    <input class = 'centering' type="button" id="show_login" value="Login">
+    <input type="button" id="show_login" value="Login">
 
     <div id = "loginform">
     <input type = "image" id = "close_login" src = "images/close.png">
@@ -48,6 +48,5 @@
           ?>
         </form>
 
-  </div>
   </body>
 </html>

@@ -17,6 +17,7 @@
   			  session_start();
           echo $_SESSION['login_user'];
   			?>
+        </a>
         </li>
   			<li style="float:right"><a href="main.php">logout</a></li>
 		</ul>

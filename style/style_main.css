@@ -55,7 +55,15 @@ html {
     font-family: 'Questrial', sans-serif;
 }
 
-.centering{
+
+div[type=centering] {
+    position: relative;
+    display: table-cell;
+    width: 100%;
+    margin: auto;
+}
+
+.contenring {
     position: relative;
     display: table-cell;
     width: 100%;
@@ -63,7 +71,6 @@ html {
 }
 
 .centering2{
-    position: relative;
     width: 50%;
     left:50%;
     margin: auto;
@@ -96,7 +103,6 @@ li a {
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
     background-color: #003366;
 }
