@@ -25,7 +25,7 @@ input[type=text1]:focus {
 
 html, body {
     height: 100%;
-    width: 600px;
+    width: 750px;
 }
 
 html {
@@ -74,6 +74,10 @@ div[type=centering] {
     width: 50%;
     left:50%;
     margin: auto;
+}
+
+textarea { 
+    font-size: 20px; 
 }
 
 form {
