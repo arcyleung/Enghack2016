@@ -105,10 +105,18 @@ function showReview($employername, $link){
 	if(!$result){
 		echo "review cannot be displayed";
 	}
+
 	while($row = mysqli_fetch_assoc($result)){
 		echo "<p>";
 		echo '<h4>'.$row['userid']." ";
 		echo "user rating : ".$row['rating'].'</h4><br>';
+		for ($i = 0; $i < floor($row['rating']); $i++){
+			echo '<img src="images/goose.png" height="30" width="30">';
+		}
+		for ($i = 0; $i < 10-floor($row['rating']); $i++){
+			echo '<img src="images/goose_w.png" height="30" width="30">';
+		}
+		echo '</br>';
 		echo $row['postdata'].'<br>';
 		echo "</p>";
 	}
