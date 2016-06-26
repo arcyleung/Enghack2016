@@ -37,7 +37,8 @@
 				echo "<img src='/Enghack2016/images/goose.png'style='width:100px;height:100px;'>"; 
 			}
 			if($request['website']){
-				echo "<a style='position: relative; left: 1em; top: -0.6em; font-size: 2em'  class = 'compname' href='http://".$request['website']."'>".$CompName."</a>";
+				echo "<a style='position: relative; left: 1em; top: -0.6em; font-size: 2em'  class = 'compname'>".$CompName."</a>";
+				echo "<div style='position: relative; left: 13em; top:-1.5em;font-size: 0.5em'><a href='http://".$request['website']."'>Visit Page</a></div>";
 			}else{
 				echo $CompName;
 			} 
