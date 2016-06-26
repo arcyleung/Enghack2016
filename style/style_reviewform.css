@@ -1,0 +1,11 @@
+submitbtn {
+	height: 2em;
+	width: 6em;
+	text-align: center;
+	color: #0000e6;
+}
+
+reviewform {
+	height: 30vh;
+	width: 50vw;
+}
