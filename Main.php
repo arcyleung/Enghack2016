@@ -15,7 +15,7 @@
   <body>  
 
   <ul>
-      <li><a>You are not logged in Yet</a></li>
+      <li><a>You are not logged in yet</a></li>
   </ul>
 
 
@@ -35,9 +35,9 @@
 
         <br><br>
         <form method = "post" action = "">
-          <input type = "text"  id = "searchBar" name="search"  placeholder="Search..">
+          <input type = "text"  id = "searchBar" name="search"  placeholder="Search for Companies...">
           <br><br>
-          <input type = "submit"  id = "dosearch"  value = "search" >
+          <input type = "submit"  id = "dosearch"  value = "Search" >
           <br>
           <?php
              if(isset($_POST['search'])){
