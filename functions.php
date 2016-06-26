@@ -45,7 +45,7 @@ function register($usrname, $password, $id){
 	}
 }
 
-function review($userid,$employername,$review,$rating){
+function addReview($userid,$employername,$review,$rating){
 	
 	if(is_null($review)){
 		echo "no review made";
@@ -107,6 +107,33 @@ function showReview($employername){
 	mysqli_free_result($result);
 
 }
+
+function getAvgRatingByEmployer($emp){
+	$sum = 0;
+	$counts = 0;
+	$link = mysqli_connect("localhost", "root", "root", "uwglass");
+	if (!$link) {
+		die("Connection failed: " . $conn->connect_error);
+	} 
+
+	$result = mysqli_query($link, sprintf("SELECT rating FROM userposts WHERE employername LIKE '%s'", $emp));
+
+	while ($row = mysqli_fetch_assoc($result)) {
+
+		$sum = $sum + $row['rating'];
+		$counts = $counts + 1;
+
+	}
+	mysqli_free_result($result);
+
+	mysqli_close($link);
+	if ($counts != 0){
+		return $sum/$counts;
+	} else {
+		return 0;
+	}
+}
+// echo getAvgRatingByEmployer('University of Waterloo');
 
 
 ?> 

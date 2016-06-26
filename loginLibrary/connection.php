@@ -1,8 +1,8 @@
 <?php 
-	$servername = "localhost:8889";
+	$servername = "localhost";
 	$username = "root";
 	$password = "root";
-	$database_name = "UWGlass";
+	$database_name = "uwglass";
 
 	// Create connection
 	$link = mysqli_connect($servername, $username, $password, $database_name);
