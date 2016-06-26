@@ -15,7 +15,7 @@
   			<li><a>Hi! 
         <?php
   			  session_start();
-          echo $_SESSION['login_user'];
+          echo " ".$_SESSION['login_user'];
   			?>
         </a>
         </li>
