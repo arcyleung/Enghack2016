@@ -43,7 +43,7 @@
              if(isset($_POST['search'])){
               search($_POST['search'],$link);
               session_start();
-              $_SESSION['login'] = 0;
+             $_SESSION['login'] = 0;
              }
           ?>
         </form>

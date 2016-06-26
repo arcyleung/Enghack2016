@@ -53,16 +53,21 @@ function addReview($userid,$employername,$review,$rating, $link){
 
 	$query = "SELECT * FROM userposts 
     WHERE employername ='".$employername."' AND userid='".$userid."'";
-    echo $query;
+    // echo $query;
 	$check = mysqli_query($link,$query);
 	$row = mysqli_fetch_assoc($check);
-	if(mysql_num_rows($check)!=0){
+
+	//echo mysqli_num_rows($check);
+	if(mysqli_num_rows($check)!=0){
 		echo "review already made";
 		exit;
 	}
 
-	$result = mysqli_query($link,"INSERT INTO userposts (userid,employername,postdata,rating, reviewdate) values ('".$usrid."','".$employername."','".$review."',".$rating.", CURDATE())");
+	$query1 = "INSERT INTO userposts (userid,employername,postdata,rating, reviewdate) values ('".$usrid."','".$employername."','".$review."',".$rating.", CURDATE())";
+	$result = mysqli_query($link,$query1);
+	echo $query1;
 
+	echo "hi";
 	if($result){
 		echo "review made successfully";
 	}else{
