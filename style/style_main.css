@@ -34,10 +34,15 @@ html {
     font-family: 'Questrial', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .gdlogo {
+    position:absolute;
     color: rgba(255,255,255,0.05);
     opacity: 0.5;
-    bottom: 100vh;
+    bottom: 90vh;
     }
 
 .complogo{
