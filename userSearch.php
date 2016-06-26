@@ -7,7 +7,10 @@
 
 	<body>
 		<ul>
-  			<li><a href="">Hi! lc6chan@uwaterloo.ca</li>
+  			<li><a href="">Hi! <?php
+  			session_start(); 
+  			echo $_SESSION['login_user']
+  			?> </li>
   			<li style="float:right"><a href="main.php">logout</a></li>
 		</ul>
 	</body>	

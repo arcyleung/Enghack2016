@@ -12,13 +12,14 @@
 
  	if(mysqli_num_rows($result)==1){
  		session_start(); // Starting Session
- 		$_SESSION['login_user']=$id; // Initializing Session
+ 		$_SESSION['login_user'] = $id; // Initializing Session
+ 		// echo $_SESSION['login_user']."test";
 		header("Location: userSearch.php");
 
 		exit;
 	}
 	else{
-		//echo "Wrong Id Or Password";
+		// echo "Wrong Id Or Password";
 		//need to add a msg to tell 
 	}
  
