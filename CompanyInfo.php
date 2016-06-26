@@ -50,6 +50,7 @@
 
 			<?php
   			  	session_start();
+  			  	
           		if(isset($_SESSION['login']) && $_SESSION['login']==1){
            			echo '<br>
            				  <a class="compname centering" href="companyReview.php?comName='.$CompName.'">

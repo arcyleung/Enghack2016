@@ -16,7 +16,18 @@
       <link rel="stylesheet" type="text/css" href="style/style_main.css">
   </head>
 
-  <body>  
+  <body> 
+    <ul>
+        <?php
+              if(isset($_SESSION['login']) && $_SESSION['login']==1){
+                echo '<li><a href="userSearch.php">Hi!'.$_SESSION['login_user'].'</a></li>';
+                echo '<li style="float:right"><a href="main.php">logout</a></li>';
+              }else{
+                echo '<li><a>You are not logged in Yet</a></li>';
+                echo '<li style="float:right"><a href="main.php">Main</a></li>';
+              }
+        ?>
+    </ul> 
     <div class="centering">
      <h1>Review for <br><?php echo $CompName?></h1>
      <div id = "reviewtextarea">
@@ -53,18 +64,21 @@
         //echo $review;
         $rating =  $_POST['rating'];
         //echo $rating;
-        if(addReview($user,$CompName,$review,$rating,$link)==1){
-          echo "<script>alert('Success! Thx for reviewing');</script>";
-        }else if(addReview($user,$CompName,$review,$rating,$link)==2){
-          echo "<script>alert('Update error. Try again later!');</script>";
-        }
-
         session_start();
         $_SESSION['login_user'] = $user;
         $_SESSION['comName'] = $CompName;
 
-        header("Location: /CompanyInfo.php");
-        exit;
+
+        if(addReview($user,$CompName,$review,$rating,$link)==1){
+          echo "<script>alert('Success! Thx for reviewing');
+                window.location.href = 'CompanyInfo.php';
+                </script>";
+
+        }else if(addReview($user,$CompName,$review,$rating,$link)==2){
+          echo "<script>alert('Update error. Try again later!');
+                window.location.href = 'CompanyInfo.php';
+                </script>";
+        }
 
       }
       ?>
