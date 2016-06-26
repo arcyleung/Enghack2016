@@ -23,7 +23,7 @@ function search($search,$link){
 	echo '<ul class ="emplist">';
 	while($row = mysqli_fetch_assoc($result)){
 
-		echo '<li style="display:inline-block!Important" class ="emplistent"><a href="CompanyInfo.php?comName='.$row['employername'].'">'.$row['employername'].'</a><br></li>';
+		echo '<li style="margins" class ="emplistent"><a href="CompanyInfo.php?comName='.$row['employername'].'">'.$row['employername'].'</a><br></li>';
 	}
 	mysqli_free_result($result);
 	echo '</ul>';
