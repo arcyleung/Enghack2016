@@ -1,6 +1,15 @@
 <?php
+
 function search($search,$link){
 	strtolower($search);
+	if($search==""){
+		echo "error: no searching content";
+		return;
+	}
+	if (preg_match('[\']', $search)){
+		echo "error: illeagal character";
+		return;
+	}
 	$query = "SELECT DISTINCT employername FROM employerdata 
     WHERE employername LIKE '%".$search."%'";
 	$result = mysqli_query($link, $query);
@@ -18,7 +27,7 @@ function search($search,$link){
 	mysqli_free_result($result);
 }
 
-function register($usrname, $password, $id, $link){
+function register($usrname, $password, $id){
 	if(!strlen($id)==8){
 		echo "id wrong digits";
 	}
@@ -36,7 +45,7 @@ function register($usrname, $password, $id, $link){
 	}
 }
 
-function review($userid,$employername,$review,$rating, $link){
+function review($userid,$employername,$review,$rating){
 	
 	if(is_null($review)){
 		echo "no review made";
@@ -59,7 +68,7 @@ function review($userid,$employername,$review,$rating, $link){
 	}
 }
 
-function deleteReview($usrname, $employername, $link){
+function deleteReview($usrname, $employername){
 
 	$result = mysqli_query($link,"DELETE FROM userposts WHERE username='".$usrname."' AND employername='".$employername."'");
     if($result){
@@ -73,7 +82,7 @@ function setSession(){
 
 }
 
-function showCompany($employername, $link){
+function showCompany($employername){
 	$query ="SELECT DISTINCT * FROM employerdata WHERE employername='".$employername."'";
 	$result = mysqli_query($link, $query);
 	$row = mysqli_fetch_assoc($result);
@@ -81,7 +90,7 @@ function showCompany($employername, $link){
 	mysqli_free_result($result);
 }
 
-function showReview($employername, $link){
+function showReview($employername){
 	$query ="SELECT * FROM userposts WHERE employername='".$employername."'";
 	$result = mysqli_query($link,$query);
 	if(!$result){
@@ -98,5 +107,6 @@ function showReview($employername, $link){
 	mysqli_free_result($result);
 
 }
+
 
 ?> 
