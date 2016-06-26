@@ -26,7 +26,11 @@
 		</ul>
 		<div class="centering">
 			<h2><?php $request = makeRequest($CompName);
-			echo "<img src='".$request['logo']."'style='width:100px;height:100px;'>"; 
+			if($request['logo']){
+				echo "<img src='".$request['logo']."'style='width:100px;height:100px;'>"; 
+			}else{
+				echo "<img src='/Enghack2016/images/goose.png'style='width:100px;height:100px;'>"; 
+			}
 			if($request['website']){
 				echo "<a href='http://".$request['website']."'>".$CompName."</a>";
 			}else{
