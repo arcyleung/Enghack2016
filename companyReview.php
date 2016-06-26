@@ -53,7 +53,12 @@
         //echo $review;
         $rating =  $_POST['rating'];
         //echo $rating;
-        addReview($user,$CompName,$review,$rating,$link);
+        if(addReview($user,$CompName,$review,$rating,$link)==1){
+          echo "<script>alert('Success! Thx for reviewing');</script>";
+        }else if(addReview($user,$CompName,$review,$rating,$link)==2){
+          echo "<script>alert('Update error. Try again later!');</script>";
+        }
+        header("Location: ");
       }
       ?>
     </div>

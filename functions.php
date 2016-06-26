@@ -65,13 +65,13 @@ function addReview($userid,$employername,$review,$rating, $link){
 
 	$query1 = "INSERT INTO userposts (userid,employername,postdata,rating, reviewdate) values ('".$usrid."','".$employername."','".$review."',".$rating.", CURDATE())";
 	$result = mysqli_query($link,$query1);
-	echo $query1;
-
-	echo "hi";
+	// echo $query1;
 	if($result){
-		echo "review made successfully";
+		// echo "review made successfully";
+		return 1;
 	}else{
-		echo "review failed:".mysqli_error();
+		// echo "review failed:".mysqli_error();
+		return 2;
 	}
 }
 
