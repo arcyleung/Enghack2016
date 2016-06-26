@@ -20,6 +20,7 @@
         </li>
   			<li style="float:right"><a href="main.php">logout</a></li>
 		</ul>
+
 		<br><br>
 		<form method = "post" action = "">
        		<input type = "text" 	id = "searchBar" name="search" 	placeholder="Search..">
@@ -33,7 +34,7 @@
               $_SESSION['login'] = 1; 
         	   }
         	?>
-        </form>
+    </form>
 
 	</body>	
 </html>

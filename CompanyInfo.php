@@ -23,8 +23,6 @@
           		}
   			?>
 		</ul>
-
-		<br><br>
 		<div class="centering">
 			<h2><?php echo $CompName?></h2>
 
@@ -32,6 +30,16 @@
 
 			<h3>Basic Information</h3>
 			Location : <?php showCompanyLoc($CompName, $link)?><br>
+
+			<?php
+  			  	session_start();
+          		if(isset($_SESSION['login']) && $_SESSION['login']==1){
+           			echo '<br>
+           				  <a href="companyReview.php?comName='.$CompName.'">
+      					  <input type = "submit"  id = "newReview"  value = "Click me to issue a new review !">
+      					  </a>';
+          		}
+  			?>
 
 			<h3>COOP Experience Review:</h3>
 			<?php showReview($CompName, $link)?>

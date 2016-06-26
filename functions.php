@@ -21,7 +21,7 @@ function search($search,$link){
 	}
 
 	while($row = mysqli_fetch_assoc($result)){
-		echo '<a href="CompanyInfo.php?comName='.$row['employername'].'"">'.$row['employername'].'</a><br>';
+		echo '<a href="CompanyInfo.php?comName='.$row['employername'].'">'.$row['employername'].'</a><br>';
 	}
 
 	mysqli_free_result($result);

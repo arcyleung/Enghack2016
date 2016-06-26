@@ -5,7 +5,7 @@ submitbtn {
 	color: #0000e6;
 }
 
-reviewform {
-	height: 30vh;
-	width: 50vw;
+textarea {
+	height: 400px;
+	width: 	550px;
 }
