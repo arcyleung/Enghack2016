@@ -12,10 +12,12 @@
 
 	<body>
 		<ul>
-  			<li><a href="">Hi! <?php
-  			session_start();
-  			echo $_SESSION['login_user']
-  			?></li>
+  			<li><a>Hi! 
+        <?php
+  			  session_start();
+          echo $_SESSION['login_user'];
+  			?>
+        </li>
   			<li style="float:right"><a href="main.php">logout</a></li>
 		</ul>
 		<br><br>
@@ -28,6 +30,8 @@
         		 if(isset($_POST['search'])){
         		  search($_POST['search'],$link);
         	   }
+             session_start();
+             $_SESSION['login'] = 1; 
         	?>
         </form>
 

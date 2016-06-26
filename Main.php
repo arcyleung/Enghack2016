@@ -8,8 +8,8 @@
   <head>
     <link rel="stylesheet" type="text/css" href="style/style_main.css">
     <link rel="stylesheet" type="text/css" href="loginLibrary/login_style.css">
-      <script type="text/javascript" src="loginLibrary/jquery.js"></script>
-      <script type="text/javascript" src="loginLibrary/login_effect.js"></script>
+    <script type="text/javascript" src="loginLibrary/jquery.js"></script>
+    <script type="text/javascript" src="loginLibrary/login_effect.js"></script>
   </head>
 
   <body>  
@@ -44,6 +44,8 @@
              if(isset($_POST['search'])){
               search($_POST['search'],$link);
              }
+             session_start();
+             $_SESSION['login'] = 0; // Starting Session
           ?>
         </form>
 
