@@ -29,9 +29,9 @@
         	<?php
         		 if(isset($_POST['search'])){
         		  search($_POST['search'],$link);
+              session_start();
+              $_SESSION['login'] = 1; 
         	   }
-             session_start();
-             $_SESSION['login'] = 1; 
         	?>
         </form>
 

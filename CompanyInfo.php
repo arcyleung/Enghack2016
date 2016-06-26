@@ -12,18 +12,16 @@
 
 	<body>
 		<ul>
-  			<li><a>
   			<?php
   			  	session_start();
           		if(isset($_SESSION['login']) && $_SESSION['login']==1){
-           			echo 'Hi!'.$_SESSION['login_user'];
+           			echo '<li><a href="userSearch.php">Hi!'.$_SESSION['login_user'].'</a></li>';
+           			echo '<li style="float:right"><a href="main.php">logout</a></li>';
           		}else{
-          			echo 'You are not logged in Yet';
+          			echo '<li><a>You are not logged in Yet</a></li>';
+          			echo '<li style="float:right"><a href="main.php">Main</a></li>';
           		}
   			?>
-  			</a>
-  			</li>
-  			<li style="float:right"><a href="main.php">logout</a></li>
 		</ul>
 
 		<br><br>

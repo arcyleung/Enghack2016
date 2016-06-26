@@ -42,9 +42,9 @@
           <?php
              if(isset($_POST['search'])){
               search($_POST['search'],$link);
+              session_start();
+              $_SESSION['login'] = 0;
              }
-             session_start();
-             $_SESSION['login'] = 0; // Starting Session
           ?>
         </form>
 
