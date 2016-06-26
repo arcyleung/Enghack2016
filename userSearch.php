@@ -1,3 +1,8 @@
+<?php 
+	include 'loginLibrary/connection.php';
+	include 'functions.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,8 +19,17 @@
   			<li style="float:right"><a href="main.php">logout</a></li>
 		</ul>
 		<br><br>
-		<input type="text" name="search" placeholder="Search..">
+		<form method = "post" action = "">
+       		<input type = "text" 	id = "searchBar" name="search" 	placeholder="Search..">
+       		<br><br>
+        	<input type = "submit" 	id = "dosearch"  value = "search" >
+        	<br>
+        	<?php
+        		 if(isset($_POST['search'])){
+        		  search($_POST['search'],$link);
+        	   }
+        	?>
+        </form>
 
 	</body>	
-
 </html>
