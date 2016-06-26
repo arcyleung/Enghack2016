@@ -124,6 +124,30 @@ function showReview($employername, $link){
 	mysqli_free_result($result);
 }
 
+function makeRequest($employername){
+	$url = 'http://api.glassdoor.com/api/api.htm';
+	$data = array('t.p' => '74594', 't.k' => 'h2Ds5BrD9Eq', 'useragent'=> 'chrome', 'userip'=>'129.97.124.198', 'format'=>'json', 'v'=>'1', 'action'=>'employers', 'q'=>$employername );
+
+// use key 'http' even if you send the request to https://...
+	$options = array(
+    	'http' => array(
+        	'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        	'method'  => 'POST',
+        	'content' => http_build_query($data)
+    	)
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	if ($result === FALSE) { return array('website','logo' ); }
+	 
+	$json = json_decode($result);
+	// echo $json->response->employers[0]->website
+	return array(
+		'website' => $json->response->employers[0]->website,
+		'logo' => $json->response->employers[0]->squareLogo
+	);
+}
+
 function getAvgRatingByEmployer($emp, $link){
 	$sum = 0;
 	$counts = 0;
