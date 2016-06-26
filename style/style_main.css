@@ -34,6 +34,12 @@ html {
     font-family: 'Questrial', sans-serif;
 }
 
+.gdlogo {
+    color: rgba(255,255,255,0.05);
+    opacity: 0.5;
+    bottom: 100vh;
+    }
+
 .complogo{
     position: relative;
     top: 0em;
@@ -50,12 +56,14 @@ html {
 }
 
 .centering{
+    position: relative;
     display: table-cell;
     width: 100%;
     margin: auto;
 }
 
 .centering2{
+    position: relative;
     width: 50%;
     left:50%;
     margin: auto;
